@@ -22,7 +22,7 @@ Memory Flags 2D es juego clasico en el que debes encontrar las parajes de bander
 1. Clona este repositorio:
 
    ```bash
-   git clone [https://github.com/joseaej/Memory-Flag-Game](https://github.com/joseaej/Memory-Flag-Game)
+   git clone https://github.com/joseaej/Memory-Flag-Game
    ```
    Abre el proyecto con Unity (versión recomendada 2021.3 o superior).
 

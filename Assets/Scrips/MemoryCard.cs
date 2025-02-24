@@ -16,13 +16,11 @@ public class MemoryCard : MonoBehaviour
     public void Flip()
     {
         Back.SetActive(false);
-        Debug.Log("Carta volteada, ID: " + _id);
     }
 
     public void UnFlip()
     {
         Back.SetActive(true);
-        Debug.Log("Carta desvolteada");
     }
 
     public void SetCard(int id, Sprite image)
@@ -33,7 +31,6 @@ public class MemoryCard : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("¡Carta clickeada!");
         if (!bIsCurrentlyFlipped && controller.CanFlip)
         {
             Flip();

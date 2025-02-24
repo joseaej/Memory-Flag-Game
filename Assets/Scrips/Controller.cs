@@ -20,7 +20,7 @@ public class Controller : MonoBehaviour
     {
         RegisterCards();
         ShuffleCards();
-        PlaceCards(3, 4);
+        PlaceCards(3, 4);  // Puedes ajustar el tamaño del tablero si lo deseas
         stopwatch.Start();
     }
 
@@ -34,17 +34,9 @@ public class Controller : MonoBehaviour
         }
     }
 
-    /* 
-    
-    el metodo devulve un array de tipo generico y recive otro
-    primero hace un clon para que no se modifique el array inicial
-    luego en el bucle se cambian la posicion del array de las cartas y por ultimo
-    retorna el nuevo array
-
-    */
     T[] Shuffle<T>(T[] a)
     {
-        T[] shuffled = a.Clone() as T[];
+        T[] shuffled = (T[])a.Clone();
         int j;
         T aux;
         for (int i = 0; i < shuffled.Length; i++)
@@ -52,7 +44,6 @@ public class Controller : MonoBehaviour
             j = Random.Range(i, shuffled.Length);
             aux = shuffled[i];
             shuffled[i] = shuffled[j];
-
             shuffled[j] = aux;
         }
         return shuffled;
@@ -67,7 +58,7 @@ public class Controller : MonoBehaviour
     {
         if (nRows * nCols != shuffledCardIds.Length)
         {
-            UnityEngine.Debug.LogError("El número de filas y columnas no coincide con la cantidad de cartas.");
+            Debug.LogError("El número de filas y columnas no coincide con la cantidad de cartas.");
             return;
         }
 
@@ -146,7 +137,9 @@ public class Controller : MonoBehaviour
             StartCoroutine(CheckCard());
         }
     }
-    IEnumerator RestartGame(){
+
+    IEnumerator RestartGame()
+    {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("SampleScene");
     }
